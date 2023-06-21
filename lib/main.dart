@@ -4,7 +4,9 @@ import 'package:qr_app/pages/home_page.dart';
 import 'package:qr_app/pages/mapa_page.dart';
 import 'package:qr_app/providers/ui_provider.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,7 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider (create: (context) => UiProvider(),)
+        ChangeNotifierProvider(
+          create: (context) => UiProvider(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -24,11 +28,12 @@ class MyApp extends StatelessWidget {
           'maps': (context) => const MapaScreen(),
         },
         theme: ThemeData(
-          primaryColor: Colors.teal,
-          floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: Colors.teal),
-          appBarTheme: const AppBarTheme(backgroundColor: Colors.teal),
-          bottomNavigationBarTheme: const BottomNavigationBarThemeData(selectedItemColor: Colors.teal)
-        ),
+            primaryColor: Colors.teal,
+            floatingActionButtonTheme: const FloatingActionButtonThemeData(
+                backgroundColor: Colors.teal),
+            appBarTheme: const AppBarTheme(backgroundColor: Colors.teal),
+            bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+                selectedItemColor: Colors.teal)),
       ),
     );
   }

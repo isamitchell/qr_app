@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_app/pages/history_direc.dart';
 import 'package:qr_app/pages/history_mapas.dart';
-import 'package:qr_app/providers/db_provider.dart';
 import 'package:qr_app/providers/ui_provider.dart';
 import 'package:qr_app/widges/navigation_bar.dart';
 import 'package:qr_app/widges/scan_buttom.dart';
+
+import '../providers/isar_provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -40,7 +41,7 @@ class _HomeBody extends StatelessWidget {
     final currentIndex = uiProvider.selectedMenuOpt;
 
     //TODO temporal leer la base de datos
-    DBProvider.db.dataBase;
+    IsarProvider.db.dataBase;
     //DBProvider.db.getScanById(1).then((scan) => print(scan!.valor));
 
     switch (currentIndex) {
