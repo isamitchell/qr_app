@@ -20,7 +20,7 @@ class DBProvider {
   }
 
   Future<Database> initDB() async {
-    //Path de donde almacenaremos la base de datos (es la ruta)
+  
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
 
     // join nos permite unir o armar las partes del path | la extension .db es importante ya que es la que identifica el sqlite
