@@ -26,14 +26,13 @@ class IsarProvider {
   // Crear registros con rawInsert: se dee ingresar los valores de la tabla manual
   Future<int> nuevoScanRaw(ScanModel2 nuevoScan) async {
     final db = await dataBase;
-    return db.txn(() => db.scanModel2s.put(nuevoScan));
+    return db.writeTxn(() => db.scanModel2s.put(nuevoScan));
   }
 
 // Crear Registro con insert: mas corto de utilizar
   Future<int> nuevoScan(ScanModel2 nuevoScan) async {
     final db = await dataBase;
-    // final res = await db.insert('Scans', nuevoScan.toJson());
-    return 1;
+    return db.writeTxn(() => db.scanModel2s.put(nuevoScan));
   }
 
   //Obtener Registros
