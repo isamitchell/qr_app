@@ -11,12 +11,12 @@ String scanModelToJson(ScanModel2 data) => json.encode(data.toJson());
 
 @Collection()
 class ScanModel2 {
-  Id id = Isar.autoIncrement;
+  Id? id = Isar.autoIncrement;
   String? tipo;
   String valor;
 
   ScanModel2({
-    required this.id,
+    this.id,
     this.tipo,
     required this.valor,
   }) {

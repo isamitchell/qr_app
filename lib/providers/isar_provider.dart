@@ -20,13 +20,10 @@ class IsarProvider {
 
   Future<Isar> initDB() async {
     final dir = await getApplicationDocumentsDirectory();
+    if (Isar.getInstance() != null) {
+      return Isar.getInstance()!;
+    }
     return Isar.openSync([ScanModel2Schema], directory: dir.path);
-  }
-
-  // Crear registros con rawInsert: se dee ingresar los valores de la tabla manual
-  Future<int> nuevoScanRaw(ScanModel2 nuevoScan) async {
-    final db = await dataBase;
-    return db.writeTxn(() => db.scanModel2s.put(nuevoScan));
   }
 
 // Crear Registro con insert: mas corto de utilizar

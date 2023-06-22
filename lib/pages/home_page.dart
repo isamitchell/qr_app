@@ -41,8 +41,7 @@ class _HomeBody extends StatelessWidget {
     final currentIndex = uiProvider.selectedMenuOpt;
 
     //TODO temporal leer la base de datos
-    IsarProvider.db.dataBase;
-    //DBProvider.db.getScanById(1).then((scan) => print(scan!.valor));
+    IsarProvider.db.initDB();
 
     switch (currentIndex) {
       case 0:
