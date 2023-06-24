@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_app/pages/home_page.dart';
 import 'package:qr_app/pages/mapa_page.dart';
+import 'package:qr_app/providers/scan_list_provider.dart';
 import 'package:qr_app/providers/ui_provider.dart';
 
 void main() async {
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => UiProvider(),
-        )
+        ),
+        ChangeNotifierProvider(create: (context) => ScanListProvider())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

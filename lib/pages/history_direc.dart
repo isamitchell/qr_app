@@ -5,8 +5,16 @@ class HistoryAdress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Historial de Direcciones'),
+    return ListView.builder(
+      itemCount: 10,
+      itemBuilder: (context, index) => ListTile(
+        leading: Icon(Icons.insert_link_rounded,
+            color: Theme.of(context).primaryColor),
+        title: const Text('efef'),
+        subtitle: const Text('eded'),
+        trailing: Icon(Icons.arrow_forward_ios_rounded,
+            color: Theme.of(context).primaryColor),
+      ),
     );
   }
 }

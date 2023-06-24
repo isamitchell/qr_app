@@ -12,7 +12,9 @@ String scanModelToJson(ScanModel2 data) => json.encode(data.toJson());
 @Collection()
 class ScanModel2 {
   Id? id = Isar.autoIncrement;
+  @Index()
   String? tipo;
+  @Index()
   String valor;
 
   ScanModel2({
@@ -21,9 +23,9 @@ class ScanModel2 {
     required this.valor,
   }) {
     if (valor.contains('http')) {
-      valor = 'http';
+      tipo = 'http';
     } else {
-      valor = 'geo';
+      tipo = 'geo';
     }
   }
 

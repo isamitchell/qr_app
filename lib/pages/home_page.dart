@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_app/pages/history_direc.dart';
 import 'package:qr_app/pages/history_mapas.dart';
+import 'package:qr_app/providers/scan_list_provider.dart';
 import 'package:qr_app/providers/ui_provider.dart';
 import 'package:qr_app/widges/navigation_bar.dart';
 import 'package:qr_app/widges/scan_buttom.dart';
@@ -42,12 +43,17 @@ class _HomeBody extends StatelessWidget {
 
     //TODO temporal leer la base de datos
     IsarProvider.db.initDB();
-
+    // Usar el ScanListProvider, para acceder a los valores
+    final scanListProvider = Provider.of<ScanListProvider>(context,
+        listen:
+            false); //Listen van en false para que no se redibuje la nstancia
     switch (currentIndex) {
       case 0:
+        scanListProvider.loadScansByType('geo');
         return const HistoryMaps();
 
       case 1:
+        scanListProvider.loadScansByType('http');
         return const HistoryAdress();
 
       default:
