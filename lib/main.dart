@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:qr_app/pages/home_page.dart';
 import 'package:qr_app/pages/mapa_page.dart';
-import 'package:qr_app/providers/scan_list_provider.dart';
-import 'package:qr_app/providers/ui_provider.dart';
+
+import 'providers/providers.dart';
 
 void main() async {
   runApp(const MyApp());
+  IsarProvider.db.initDB();
 }
 
 class MyApp extends StatelessWidget {

@@ -7,8 +7,6 @@ import 'package:qr_app/providers/ui_provider.dart';
 import 'package:qr_app/widges/navigation_bar.dart';
 import 'package:qr_app/widges/scan_buttom.dart';
 
-import '../providers/isar_provider.dart';
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -19,7 +17,14 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title: const Text('Historial'),
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.delete))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                Provider.of<ScanListProvider>(context, listen: false)
+                    .deleteScans();
+              },
+              icon: const Icon(Icons.delete))
+        ],
       ),
       body: const _HomeBody(),
       bottomNavigationBar: const CustomNavigationBar(),
@@ -41,12 +46,11 @@ class _HomeBody extends StatelessWidget {
     // Cambiar Para mostrar la pagina respectiva
     final currentIndex = uiProvider.selectedMenuOpt;
 
-    //TODO temporal leer la base de datos
-    IsarProvider.db.initDB();
     // Usar el ScanListProvider, para acceder a los valores
-    final scanListProvider = Provider.of<ScanListProvider>(context,
-        listen:
-            false); //Listen van en false para que no se redibuje la nstancia
+    //Listen van en false para que no se redibuje la nstancia
+    final scanListProvider =
+        Provider.of<ScanListProvider>(context, listen: false);
+
     switch (currentIndex) {
       case 0:
         scanListProvider.loadScansByType('geo');
