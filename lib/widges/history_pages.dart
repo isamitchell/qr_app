@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_app/utils/utils.dart';
 
 import '../providers/providers.dart';
 
@@ -31,7 +32,7 @@ class CustomHistory extends StatelessWidget {
           subtitle: Text(scans[i].id.toString()),
           trailing: Icon(Icons.arrow_forward_ios_rounded,
               color: Theme.of(context).primaryColor),
-          onTap: () {},
+          onTap: () => launchUrlView(context, scans[i]),
         ),
       ),
     );

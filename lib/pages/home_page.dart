@@ -61,7 +61,7 @@ class _HomeBody extends StatelessWidget {
         return const HistoryAdress();
 
       default:
-        return const HistoryMaps();
+        return const HistoryMaps(); // todo: modificar default por una pagina defecto
     }
   }
 }

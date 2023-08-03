@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         initialRoute: 'home',
         routes: {
           'home': (context) => const HomeScreen(),
-          'maps': (context) => const MapaScreen(),
+          'mapa': (context) => const MapaScreen(),
         },
         theme: ThemeData(
             primaryColor: Colors.teal,

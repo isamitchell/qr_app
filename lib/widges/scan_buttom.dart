@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
-import 'package:qr_app/models/scan_model_isar.dart';
-
 import 'package:qr_app/providers/providers.dart';
+import 'package:qr_app/utils/utils.dart';
 
 class ScanFloatingButtom extends StatelessWidget {
   const ScanFloatingButtom({super.key});
@@ -19,7 +18,9 @@ class ScanFloatingButtom extends StatelessWidget {
         final scanListProvider =
             Provider.of<ScanListProvider>(context, listen: false);
 
-        scanListProvider.newScan(barcodeScanRes);
+        final newScan = await scanListProvider.newScan(barcodeScanRes);
+
+        launchUrlView(context, newScan);
       },
       elevation: 0,
       child: const Icon(Icons.qr_code_scanner),

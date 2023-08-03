@@ -22,7 +22,7 @@ class ScanModel2 {
     this.tipo,
     required this.valor,
   }) {
-    if (valor.contains('maps')) {
+    if (valor.contains('maps/@-')) {
       tipo = 'geo';
     } else {
       tipo = 'http';

@@ -5,7 +5,7 @@ class ScanListProvider extends ChangeNotifier {
   List<ScanModel2> scans = [];
   String selectedType = 'http';
 
-  newScan(String valor) async {
+  Future<ScanModel2> newScan(String valor) async {
     final scanData = ScanModel2(valor: valor); //instancia
     final idScan =
         await IsarProvider.db.nuevoScan(scanData); // crea base de datos
@@ -16,6 +16,7 @@ class ScanListProvider extends ChangeNotifier {
       scans.add(scanData); // asigno id obtenido a la lista del scanList
       notifyListeners();
     }
+    return scanData;
   }
 
   loadScans() async {
